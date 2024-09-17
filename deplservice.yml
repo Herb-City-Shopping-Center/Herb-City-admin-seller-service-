@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-seller-service-deployment
+  labels:
+    app: admin-seller-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-seller-service
+  template:
+    metadata:
+      labels:
+        app: admin-seller-service 
+    spec:
+      containers:
+      - name: nodeserver
+        image: deshitha/admin-seller-service
+        ports:
+        - containerPort: 7001

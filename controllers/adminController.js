@@ -19,28 +19,27 @@ const getAllShops = asyncHandler(async (req, res) => {
   }
 });
 
-const confirmOrder = asyncHandler(async (req, res) => {
-  const { id } = req.body;
+// const confirmOrder = asyncHandler(async (req, res) => {
+//   const { id } = req.body;
 
-  const order = await Order.findByIdAndUpdate(id, {
-    orderStatus: "Confirmed",
-  });
+//   const order = await Order.findByIdAndUpdate(id, {
+//     orderStatus: "Confirmed",
+//   });
 
-  if (order) {
-    console.log("Order Confirmed!!!".green.bold);
-    //send data to frontend in json format
-    res.send(order);
-  } else {
-    console.log("Failed to confirm order !!!".red.bold);
-    //send error message to frontend
-    res.status(400).json({
-      error: "Failed to confirm order !!!",
-    });
-    throw new error("Failed to confirm order !!!");
-  }
-});
+//   if (order) {
+//     console.log("Order Confirmed!!!".green.bold);
+//     //send data to frontend in json format
+//     res.send(order);
+//   } else {
+//     console.log("Failed to confirm order !!!".red.bold);
+//     //send error message to frontend
+//     res.status(400).json({
+//       error: "Failed to confirm order !!!",
+//     });
+//     throw new error("Failed to confirm order !!!");
+//   }
+// });
 
 module.exports = {
   getAllShops,
-  confirmOrder,
 };
